@@ -127,7 +127,7 @@ const ProfileScreen = (props) => {
       dbRef.child("users").child(currUser.uid).child('current_bookings').get().then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
-          bookedIds = (snapshot.val());
+          bookedIds.push(snapshot.val());
         } else {
           console.log("No data available");
         }
