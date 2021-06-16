@@ -3,7 +3,7 @@ import React from "react";
 import { StyleSheet } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Feather, Ionicons, FontAwesome } from "@expo/vector-icons";
+import { Feather, Ionicons, FontAwesome, AntDesign } from "@expo/vector-icons";
 import { ProfileStack } from "./profileScreen/ProfileStack";
 import { WishlistStack } from "./WishlistPage/WishlistStack";
 import SearchStack from "./SearchPage/SearchStack";
@@ -43,6 +43,8 @@ export default function App() {
               );
             } else if (route.name === "Inbox") {
               return <Feather name="message-square" size={24} color="black" />;
+            } else if (route.name === "Login") {
+              return <AntDesign name="login" size={24} color="black" />
             } else {
               return (
                 <FontAwesome name="user-circle-o" size={24} color="black" />
@@ -58,8 +60,8 @@ export default function App() {
         <Tab.Screen name="Explore" component={SearchStack} />
         <Tab.Screen name="Wishlist" component={WishlistStack} />
         <Tab.Screen name="Inbox" component={InboxScreen} />
-        <Tab.Screen name="Profile" component={LoginStack} />
-        <Tab.Screen name="ProfileScreen" component={ProfileStack} />
+        <Tab.Screen name="Login" component={LoginStack} />
+        <Tab.Screen name="Profile" component={ProfileStack} />
       </Tab.Navigator>
     </NavigationContainer>
   );
