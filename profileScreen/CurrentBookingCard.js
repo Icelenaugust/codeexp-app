@@ -3,15 +3,19 @@ import { View, StyleSheet, Text, Image } from "react-native";
 
 export const CurrentBookingCard = (props) => {
   const { bookingDetails } = props;
+
   return (
     <View style={styles.container}>
       <Image
         style={styles.image}
         source={{
-          uri: bookingDetails.coverImage[0],
+          uri: bookingDetails.coverImage,
         }}
       />
-      <Text>{bookingDetails.companyName}</Text>
+      <View style={styles.innerContainer}>
+        <Text style={styles.text}>{bookingDetails.companyName}</Text>
+        <Text style={styles.text}>{bookingDetails.startDate} to {bookingDetails.endDate}</Text>
+      </View>
     </View>
   );
 };
@@ -19,16 +23,25 @@ export const CurrentBookingCard = (props) => {
 const styles = StyleSheet.create({
   container: {
     backgroundColor: "white",
-    minHeight: 50,
+    minHeight: 75,
     paddingVertical: 5,
     flexDirection: "row",
     alignItems: "center",
   },
   image: {
-    height: 50,
-    width: 50,
+    height: 75,
+    width: 75,
     marginRight: 20,
     resizeMode: "cover",
     alignSelf: "center",
   },
+  text: {
+    fontSize: 12,
+  },
+  innerContainer: {
+    // justifyContent: "flex-start",
+    flexDirection: "column",
+    justifyContent: "space-evenly",
+    height: "100%",
+  }
 });

@@ -7,7 +7,9 @@ export const ShadowEffectCard = (props) => {
 
 const styles = StyleSheet.create({
   shadowContainer: {
+    backgroundColor: "white",
     padding: 10,
+    marginBottom: 10,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
