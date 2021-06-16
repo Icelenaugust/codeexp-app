@@ -122,12 +122,11 @@ const ProfileScreen = (props) => {
 
   const db = firebase.firestore()
   
-  
     if (currUser) {
       dbRef.child("users").child(currUser.uid).child('current_bookings').get().then((snapshot) => {
         if (snapshot.exists()) {
           console.log(snapshot.val());
-          bookedIds.push(snapshot.val());
+          bookedIds = (snapshot.val());
         } else {
           console.log("No data available");
         }
@@ -135,27 +134,8 @@ const ProfileScreen = (props) => {
         console.error(error);
       });
     }
-    /*
-    const unsubscribe = dbSampleUsers.onSnapshot((collection) => {
-      const userBookings = collection.docs.map((doc) => {
-        return {
-          id: doc.id,
-          currentBookings: doc.data().currentBookings
-        };
-      });
-      const user = collection.docs.map((doc) => {
-        return {
-          id: doc.id,
-          ...doc.data()
-        }
-      });
-      setUser(user);
-      setBookedListings(userBookings);
-      */
 
-
-  
-  //const [user, setUser] = useState(null)
+    console.log("BOTTLE" + bookedIds)
 
   for (var i = 0; i < bookedIds.length; i++) {
     var docRef = db.collection("sample-listings").doc(bookedIds[i]);
